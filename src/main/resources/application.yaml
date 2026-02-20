@@ -2,7 +2,7 @@ spring:
   application:
     name: catalog-service
 
-sever:
+server:
   port: 9001
   tomcat:
     connection-timeout: 2s
