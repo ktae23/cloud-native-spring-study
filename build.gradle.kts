@@ -11,8 +11,12 @@ description = "Demo project for Spring Boot"
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(24)
+		languageVersion = JavaLanguageVersion.of(25)
 	}
+}
+
+tasks.withType<JavaCompile> {
+	options.release.set(24)
 }
 
 repositories {
