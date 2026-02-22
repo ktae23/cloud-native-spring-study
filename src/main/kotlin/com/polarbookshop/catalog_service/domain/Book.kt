@@ -9,7 +9,7 @@ data class Book(
     @NotBlank
     @Pattern(
         regexp = "^[0-9]{10}|[0-9]{13}\$",
-        message = "Hte Isbn format must be valid"
+        message = "The ISBN format must be valid"
     )
     val isbn: String,
     @NotBlank(
