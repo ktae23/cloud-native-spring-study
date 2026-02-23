@@ -1,13 +1,16 @@
 package com.polarbookshop.catalog_service.web
 
+import com.polarbookshop.catalog_service.config.PolarProperties
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class HomeController {
+class HomeController(
+    private val properties: PolarProperties
+) {
 
     @GetMapping("/")
     fun getGreetings(): String {
-        return "도서 카달로그에 오신 것을 환영합니다!"
+        return properties.greeting
     }
 }
