@@ -15,6 +15,7 @@ spring:
         max-interval: 2000
         multiplier: 1.1
 
+
 server:
   port: 9001
   tomcat:
@@ -26,3 +27,9 @@ server:
 
 polar:
   greeting: Welcome to the local book catalog!
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
