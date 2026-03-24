@@ -3,10 +3,10 @@ package com.polarbookshop.catalog_service.config
 import org.springframework.boot.context.properties.ConfigurationProperties
 
 @ConfigurationProperties(prefix = "polar")
-class PolarProperties(
+class PolarProperties {
 
     /**
      * A message to welcome users.
      */
-    var greeting: String
-)
+    lateinit var greeting: String
+}
