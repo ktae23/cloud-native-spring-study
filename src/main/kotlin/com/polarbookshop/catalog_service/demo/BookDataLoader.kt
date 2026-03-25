@@ -21,12 +21,14 @@ class BookDataLoader(
                 isbn = "1234567891",
                 title = "Northern Lights",
                 author = "Lyra Silver star",
+                publisher = "Northern Star",
                 price = 9.90
             ),
             Book.of(
                 isbn = "1234567892",
                 title = "Polar Journey",
                 author = "Iorek Polarson",
+                publisher = "Polar Journey",
                 price = 12.90,
             )
         )

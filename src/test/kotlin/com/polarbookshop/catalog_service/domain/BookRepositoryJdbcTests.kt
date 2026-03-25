@@ -28,6 +28,7 @@ class BookRepositoryJdbcTests(
             isbn = bookIsbn,
             title = "Title",
             author = "Author",
+            publisher = "tester",
             price = 12.90
         )
         jdbcAggregateTemplate.insert(book)

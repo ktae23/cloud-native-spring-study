@@ -39,6 +39,8 @@ data class Book(
     @Version
     val version: Int = 0,
 
+    val publisher: String,
+
     @CreatedDate
     val createdDate: LocalDateTime? = null,
 
@@ -47,7 +49,7 @@ data class Book(
 
     ) {
     companion object {
-        fun of(isbn: String, title: String, author: String, price: Double): Book {
+        fun of(isbn: String, title: String, author: String, price: Double, publisher: String): Book {
             return Book(
                 id = null,
                 isbn = isbn,
@@ -55,8 +57,9 @@ data class Book(
                 author = author,
                 price = price,
                 version = 0,
-                null,
-                null
+                publisher = publisher,
+                createdDate = null,
+                lastModifiedDate = null
             )
         }
     }

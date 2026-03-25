@@ -14,7 +14,7 @@ class BookJsonTests(
 
     @Test
     fun `when serialize book then json is valid`() {
-        val book = Book.of(isbn = "1234567890", title = "Title", author = "Author", price = 100.0)
+        val book = Book.of(isbn = "1234567890", title = "Title", author = "Author", publisher = "tester", price = 100.0)
         val jsonContent = json.write(book)
         assertThat(jsonContent).apply {
             extractingJsonPathValue("@.id").isEqualTo(book.id)
@@ -25,6 +25,7 @@ class BookJsonTests(
             extractingJsonPathValue("@.created_date").isEqualTo(book.createdDate)
             extractingJsonPathValue("@.last_modified_date").isEqualTo(book.lastModifiedDate)
             extractingJsonPathValue("@.version").isEqualTo(book.version)
+            extractingJsonPathValue("@.publisher").isEqualTo(book.publisher)
         }
     }
 
@@ -35,12 +36,13 @@ class BookJsonTests(
             "isbn": "1234567890",
             "title": "Title",
             "author": "Author",
-            "price": 100.0
+            "price": 100.0,
+            "publisher": "tester" 
             }
         """
         assertThat(json.parse(content))
             .usingRecursiveComparison()
-            .isEqualTo(Book.of(isbn = "1234567890", title = "Title", author = "Author", price = 100.0))
+            .isEqualTo(Book.of(isbn = "1234567890", title = "Title", author = "Author", publisher = "tester", price = 100.0))
 
     }
 }
