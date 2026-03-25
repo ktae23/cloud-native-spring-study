@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:14:///polardb_catalog
+    username: user
+    password: password
+  sql:
+    init:
+      mode: always
