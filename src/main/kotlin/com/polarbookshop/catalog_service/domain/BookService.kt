@@ -25,7 +25,13 @@ class BookService(
         bookRepository.findByIsbn(isbn)
             ?.let {
                 bookRepository.save(
-                    it.copy(title = book.title, author = book.author, price = book.price)
+                    it.copy(
+                        id = it.id,
+                        title = book.title,
+                        author = book.author,
+                        price = book.price,
+                        version = it.version
+                    )
                 )
             } ?: addBookToCatalog(book)
 

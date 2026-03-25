@@ -14,9 +14,9 @@ class BookDataLoader(
 ) {
 
     @EventListener(ApplicationReadyEvent::class)
-    fun loadBookTestData(): Unit {
+    fun loadBookTestData() {
         bookRepository.save(
-            Book(
+            Book.of(
                 isbn = "1234567891",
                 title = "Northern Lights",
                 author = "Lyra Silver star",
@@ -24,11 +24,11 @@ class BookDataLoader(
             )
         )
         bookRepository.save(
-            Book(
+            Book.of(
                 isbn = "1234567892",
                 title = "Polar Journey",
                 author = "Iorek Polarson",
-                price = 12.90
+                price = 12.90,
             )
         )
 
