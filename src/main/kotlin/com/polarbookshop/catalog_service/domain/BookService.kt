@@ -30,7 +30,9 @@ class BookService(
                         title = book.title,
                         author = book.author,
                         price = book.price,
-                        version = it.version
+                        version = it.version,
+                        createdDate = it.createdDate,
+                        lastModifiedDate = it.lastModifiedDate
                     )
                 )
             } ?: addBookToCatalog(book)

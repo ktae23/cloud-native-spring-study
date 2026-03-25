@@ -4,8 +4,11 @@ import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Positive
+import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
+import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.annotation.Version
+import java.time.LocalDateTime
 
 data class Book(
 
@@ -35,7 +38,14 @@ data class Book(
     val price: Double,
     @Version
     val version: Int = 0,
-) {
+
+    @CreatedDate
+    val createdDate: LocalDateTime? = null,
+
+    @LastModifiedDate
+    val lastModifiedDate: LocalDateTime? = null,
+
+    ) {
     companion object {
         fun of(isbn: String, title: String, author: String, price: Double): Book {
             return Book(
@@ -44,7 +54,9 @@ data class Book(
                 title = title,
                 author = author,
                 price = price,
-                version = 0
+                version = 0,
+                null,
+                null
             )
         }
     }

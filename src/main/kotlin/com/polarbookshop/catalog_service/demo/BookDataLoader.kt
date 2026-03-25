@@ -15,15 +15,14 @@ class BookDataLoader(
 
     @EventListener(ApplicationReadyEvent::class)
     fun loadBookTestData() {
-        bookRepository.save(
+        bookRepository.deleteAll()
+        val books = listOf(
             Book.of(
                 isbn = "1234567891",
                 title = "Northern Lights",
                 author = "Lyra Silver star",
                 price = 9.90
-            )
-        )
-        bookRepository.save(
+            ),
             Book.of(
                 isbn = "1234567892",
                 title = "Polar Journey",
@@ -31,6 +30,6 @@ class BookDataLoader(
                 price = 12.90,
             )
         )
-
+        bookRepository.saveAll(books)
     }
 }

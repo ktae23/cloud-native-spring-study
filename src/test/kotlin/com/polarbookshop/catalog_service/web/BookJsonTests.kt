@@ -22,6 +22,8 @@ class BookJsonTests(
             extractingJsonPathValue("@.title").isEqualTo(book.title)
             extractingJsonPathValue("@.author").isEqualTo(book.author)
             extractingJsonPathValue("@.price").isEqualTo(book.price)
+            extractingJsonPathValue("@.created_date").isEqualTo(book.createdDate)
+            extractingJsonPathValue("@.last_modified_date").isEqualTo(book.lastModifiedDate)
             extractingJsonPathValue("@.version").isEqualTo(book.version)
         }
     }
