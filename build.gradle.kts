@@ -62,6 +62,19 @@ dependencyManagement {
     }
 }
 
+tasks.bootBuildImage {
+    imageName = "${project.name}:${project.version}"
+    environment = mapOf("BP_JVM_VERSION" to (project.findProperty("jvmVersion") as String? ?: System.getProperty("java.version").split(".")[0]))
+
+    docker {
+        publishRegistry {
+            username = project.findProperty("registryUsername") as String?
+            password = project.findProperty("registryToken") as String?
+            url      = project.findProperty("registryUrl") as String?
+        }
+    }
+}
+
 kotlin {
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict", "-Xannotation-default-target=param-property")
